@@ -35,3 +35,72 @@ How about the minimum?
 Can you work out what the 'average' behaviour might be like?
 
 Try using your instrumented code to see if you've got these expressions right.
+
+### Test data for Ex2
+[This test data can also be used to verify your solution to Ex1]
+ 1. `[3, 1, 0, 4, 2]`
+   a. Naive BS: 5 passes, 20 comparisons, 5 swaps
+   b. Improvement 1: 3p, 12c, 5s
+   c. Improvement 2: 5p, 10c, 5s
+   d. Improvement 3: 4p, 16c, 5s
+   e. All improvements: 3p, 9c, 5s
+
+ 2. `[3, 1, 2, 0, 5, 7, 9, 4, 8, 6]`
+   a. Naive BS: 10p, 90c, 12s
+   b. Improvement 1: 4p, 36c, 12s
+   c. Improvement 2: 10p, 45c, 12s
+   d. Improvement 3: 9s, 81c, 12s
+   e. All improvements: 4p, 30c, 12s
+
+ 3. `[4, 3, 2, 1]`
+   a. Naive BS: 4p, 12c, 6s
+   b. Improvement 1: 4p, 12c, 6s
+   c. Improvement 2: 4p, 6c, 6s
+   d. Improvement 3: 3p, 9c, 6s
+   e. All improvements: 3p, 6c, 6s
+
+
+## Exercise 3: Selection and Insertion Sorts
+For all its simplicity, bubble sort is typically hideously slow. Selection and Insertion sorts are usually a big improvement for relatively little extra complexity.
+The can be considered two variants on the same fundamental process, which is why they're often introduced together.
+Each has advantages and disadvantages, which you shall investigate below.
+
+### Ex 3 a: Selection Sort
+The selection sort algorithm can be surmised as follows:
+ - Scan through the list, searching for the largest value.
+ - Once identified, swap it with the last item in the list.
+ - Repeat until sorted - though only search for the largest item in the *unsorted part*, and swap with the last item in the *unsorted part*.
+
+### Ex 3 b: Insertion Sort
+The intertion sort algorithm can be surmised as follows:
+ - Split the list into 'sorted' and 'unsorted' parts; initially the 'sorted' part is just the first item.
+ - Take the first number from the 'unsorted' part and compare it to the last 'sorted' value.
+ - If the two are out of order, move the 'sorted' one space to the right.
+ - Repeatedly compare the 'test' value with the next 'sorted' value until it is larger.
+ - Insert the 'test' value in the slot freed by the last move.
+ - The 'sorted' part is now one item longer; repeat until the full list is sorted.
+ - NB: 'right' refers to position in the list if written with index 0 on the left, ie what you see when you `print(test_list)`
+
+### Ex 3 c: Instrumentation
+Add similar instrumentation to that used for the bubble sorts to the selection and insertion sorts so you can compare their behaviour.
+Can you apply any of the optimisations from the bubble sort to these algorithms?
+What effect do they have on their performance?
+
+As with the bubble sort, can you work out what the minimum, maximum, and average 'work' (passes, comparisons, swaps) is for each of these algorithms?
+
+What does all this mean for the relative performance of selection sort and insertion sort?
+In what situation(s) would it make sense to pick one over the other?
+
+### Ex 3 d: Min/max item
+A critical part of the selection sort algorithm is locating the largest item in the list.
+ 1. Write a dedicated function to find the largest item in a list; it should return both the largest value, and its position in the list.
+ 2. Modify your function to allow it to search for the largest *or smallest* item.
+ 3. Modify your function to allow it to use a custom comparison function to find a specific item, eg given
+    ```Python
+    def largest_even(a, b):
+        if a % 2 == b % 2:
+            return b > a
+        else:
+            return a % 2
+    ```
+    And the list `[3, 1, 5, 9, 2, 7, 13, 8, 11]`, your function should return `8` as the largest value, and its index '7'.
