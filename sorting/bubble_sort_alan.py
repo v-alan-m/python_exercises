@@ -9,4 +9,4 @@ def bubble_sort(arr):
 if __name__ == "__main__":
     arr = [8,9,4,5,6,7,2,3]
     bubble_sort(arr)
-    print(arr)
+    print(f"Sorted: {arr}")
