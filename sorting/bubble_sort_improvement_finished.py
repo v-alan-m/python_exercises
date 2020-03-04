@@ -28,7 +28,8 @@ def bubble_sort_improvement_finished(arr):
 
             passes += 1
 
-    print(f"\n------------------------------------\n\nNumber of passes: {passes} \nNumber of comparisons: {comparisions} \nNumber of swaps: {swaps}")
+    print("\n------------------------------------")
+    print(f"\nNumber of passes: {passes} \nNumber of comparisons: {comparisions} \nNumber of swaps: {swaps}")
     print(f"\nSorted List: {arr}")
 
 
