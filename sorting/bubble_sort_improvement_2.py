@@ -3,7 +3,6 @@ def bubble_sort_improvement_2(arr):
     passes = 0
     comparisions = 0
     swaps = 0
-    change = True
 
     for i in range(len(arr) - 1):
         print(f"\n-------- Start: pass {i+1} ---------\n")
