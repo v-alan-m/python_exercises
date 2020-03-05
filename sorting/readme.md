@@ -104,3 +104,38 @@ A critical part of the selection sort algorithm is locating the largest item in 
             return a % 2
     ```
     And the list `[3, 1, 5, 9, 2, 7, 13, 8, 11]`, your function should return `8` as the largest value, and its index '7'.
+
+## Exercise 4: Merge Sort
+Merge sort brings a step change in performance over the previous sorts. It achieves this by approaching the problem in a fundamentally different way.
+
+### Ex 4 a: Recursion: Factorials and Fibonacci
+Merge sort is a *recursive* algorithm, meaning it calls itself.
+To introduce that concept in a simpler setting, we will first examine classic example of recursion.
+
+Recursion is simply the process of a function calling itself, and these two examples should demonstrate its power and some of the pitfalls.
+
+ 1. Write a function to calculate the factorial of its input (which must be a non-negative integer).
+     - n! = n * (n-1) * (n-2) * (n-3) * ... * 2 * 1
+     - n! = n * (n-1)!
+     - As a function therefore, `fact(n) -> n * fact(n-1)`
+     - Note: be **careful** of the termination condition! *Infinite recursion* is no fun!
+ 2. Write a function to calculate the nth Fibonacci number.
+     - The Fibonacci numbers are defined by `fib(n) = fib(n-1) + fib(n-2)`, with `fib(0) = fib(1) = 1`
+
+### Ex 4 b: Basic Merge Sort
+The merge sort algorithm can be surmised as follows:
+ - Split the list in half.
+ - Apply merge sort to the left half.
+ - Apply merge sort to the right half.
+ - Merge the two halves back together. Merging two lists proceeds as follows:
+     - Compare the next item from the left and right lists
+     - Output the smaller one
+     - Repeat until one list is empty, then output the remaining items from the other.
+ - Note: A list containing one item and an empty list are *already* sorted.
+
+### Ex 4 c: Instrumentation
+As with the other sorts, add some instrumentation to your merge sort.
+You have to be more careful here, as the recursive nature of the algorithm means it's harder to track things properly across the multiple calls.
+
+Analyse your merge sort with the help of your instrumentation code.
+What does its best-, worst-, and average-case performance look like?
