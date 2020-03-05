@@ -4,7 +4,7 @@ def bubble_sort_improvement_1(arr):
     comparisions = 0
     swaps = 0
 
-    for i in range(len(arr) - 1):       # Improvement: The value in the first index position will be sorted, if all other values are sorted correctly_finished
+    for i in range(len(arr) - 1):       # Improvement: The value in the first index position will be sorted, if all other values are sorted correctly
         print(f"\n-------- Start: pass {i + 1} ---------\n")
         
         for j in range(len(arr) - 1):
