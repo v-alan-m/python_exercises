@@ -5,30 +5,30 @@ def bubble_sort_finished(arr):
     swaps = 0
     changed = True      # Improvement: Stop the process if there are no swaps made (i.e. the list has been sorted)
 
-    if changed:
-        for i in range(len(arr) - 1):       # Improvement: The value in the first index position will be sorted, if all other values are sorted correctly_finished
-            passes += 1
-            print(f"\n-------- Start: pass {i + 1} ---------\n")
-            changed = False
 
-            for j in range(len(arr) - 1 - i):       # Improvement: The number of comparisions can be reduced, by not comparing the sorted values
-                comparisions += 1
-                print(f"Comparing: {arr[j]} and {arr[j + 1]}")
+    for i in range(len(arr) - 1):       # Improvement: The value in the first index position will be sorted, if all other values are sorted correctly_finished
+        passes += 1
+        print(f"\n-------- Start: pass {i + 1} ---------\n")
+        changed = False
 
-                if arr[j] > arr[j + 1]:
-                    swaps += 1
-                    
-                    stored = arr[j]
-                    arr[j] = arr[j + 1]
-                    arr[j+1] = stored
+        for j in range(len(arr) - 1 - i):       # Improvement: The number of comparisions can be reduced, by not comparing the sorted values
+            comparisions += 1
+            print(f"Comparing: {arr[j]} and {arr[j + 1]}")
 
-                    changed = True
+            if arr[j] > arr[j + 1]:
+                swaps += 1
+                
+                stored = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j+1] = stored
 
-                    print(f"*Swapped: {arr[j]} and {arr[j + 1]}")
-                    print(f"\n{arr}\n")
+                changed = True
 
-            if changed == False:
-                break
+                print(f"*Swapped: {arr[j]} and {arr[j + 1]}")
+                print(f"\n{arr}\n")
+
+        if changed == False:
+            break
 
 
     print("\n------------------------------------")
