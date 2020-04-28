@@ -10,4 +10,4 @@ def fibonacci(n):
         print('The input must be a positive integer')
 
 if __name__ == "__main__":
-    fibonacci(10)
+    print(fibonacci(10))
