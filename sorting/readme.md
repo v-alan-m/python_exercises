@@ -139,3 +139,17 @@ You have to be more careful here, as the recursive nature of the algorithm means
 
 Analyse your merge sort with the help of your instrumentation code.
 What does its best-, worst-, and average-case performance look like?
+
+## Exercise 5: Quicksort
+Quicksort is an excellent, standard algorithm.
+Like merge sort, quicksort is a recursive algorithm.
+Unlike merge sort (where most of the work is done by the merge step on the way back *up*), most of the work of quicksort is done during the process of breaking the list *down* into two parts.
+
+The algorithm can be surmised as follows:
+ - Select a 'pivot'
+ - Create a list containing all items smaller than the pivot (the 'left' part), and another containing all other items except the pivot itself (the 'right' part)
+ - Apply quicksort to the left part
+ - Apply quicksort to the right part
+ - The sorted input is obtained by appending the pivot to the left part, then appending the right part to that.
+
+Note: various optimisations are possible, which reduce the amount of copying this algorithm requires. Can you think of any?
