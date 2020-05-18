@@ -1,16 +1,13 @@
-def quick_sort(arr):
+def quick_sort(arr,first=0,last=len(arr) - 1):
     
-    quick_sort_helper(arr,0,len(arr) - 1)
-
-    
-def quick_sort_helper(arr,first,last):
+    quick_sort_helper(arr,first,last)
     
     if first < last:
         split_point = split(arr,first,last)
         
-        quick_sort_helper(arr,first,split_point - 1)
-        quick_sort_helper(arr,split_point + 1,last)
-
+        quick_sort(arr,first,split_point - 1)
+        quick_sort(arr,split_point + 1,last)
+    
         
 def split(arr,first,last):
     
